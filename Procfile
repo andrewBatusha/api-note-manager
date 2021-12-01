@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.coursework.demo.ApiNoteManagerApplication
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.example.apinotemanager.ApiNoteManagerApplication
