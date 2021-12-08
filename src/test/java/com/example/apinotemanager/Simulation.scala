@@ -5,7 +5,7 @@ import io.gatling.core.Predef.scenario
 import io.gatling.core.structure.ScenarioBuilder
 
 object Simulation {
-  def getNotesScen: ScenarioBuilder = scenario("crud scenario")
+  def crudScen: ScenarioBuilder = scenario("crud scenario")
     .exec(getNotes())
     .exec(postNote())
     .exec(getNoteById())

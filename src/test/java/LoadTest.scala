@@ -1,4 +1,4 @@
-import com.example.apinotemanager.Simulation.getNotesScen
+import com.example.apinotemanager.Simulation.crudScen
 import io.gatling.core.Predef._
 import io.gatling.http.Predef.http
 
@@ -10,7 +10,7 @@ class LoadTest extends Simulation {
    .acceptCharsetHeader("UTF-8")
 
   setUp(
-    getNotesScen.inject(
+    crudScen.inject(
      constantUsersPerSec(1) during 10
   ).protocols(httpConf)
   )
