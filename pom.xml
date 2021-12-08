@@ -16,6 +16,7 @@
     <packaging>war</packaging>
     <properties>
         <java.version>1.8</java.version>
+        <gatling.simulationClass>LoadTest</gatling.simulationClass>
     </properties>
     <dependencies>
         <dependency>
@@ -81,6 +82,12 @@
             <artifactId>okhttp</artifactId>
             <version>4.9.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.gatling.highcharts/gatling-charts-highcharts -->
+        <dependency>
+            <groupId>io.gatling.highcharts</groupId>
+            <artifactId>gatling-charts-highcharts</artifactId>
+            <version>3.5.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -96,6 +103,18 @@
                         <goals><goal>copy-dependencies</goal></goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <simulationsFolder>src/test/java</simulationsFolder>
+                    <resourcesFolder>src/test/resources</resourcesFolder>
+                    <includes>
+                        <include>${gatling.simulationClass}</include>
+                    </includes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
