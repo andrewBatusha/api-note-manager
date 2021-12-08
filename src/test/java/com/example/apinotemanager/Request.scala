@@ -21,7 +21,7 @@ object Request {
     exec(
       http("postNote")
         .post("/v1/notes")
-        .body(StringBody(
+        .body(StringBody(_ =>
           s"""
             |{
             |  "body": "test ${UUID.randomUUID}",
